@@ -14,6 +14,8 @@ $(document).ready(function(){
 
   //Get a reference to the database service
     var database = firebase.database();
+
+    var formComplete = true;
  
   // grab data from form
   $("#submitBtn").on('click', function(){
@@ -22,17 +24,39 @@ $(document).ready(function(){
     event.preventDefault();
 
     var train = $("#train-name").val().trim();
+    if(train === "") {
+      alert("Plase enter the train name");
+      
+    }
+    
     console.log("train name: ",train)
 
     var destination = $("#destination").val().trim();
+    if(destination === "") {
+      alert("Please enter the destination");
+      
+    }
+    
     console.log("destination: ",destination)
 
     var firstTrain = $("#first-train").val().trim();
+    if(firstTrain === "") {
+      alert("Plase enter what time the first train arrives");
+      
+    }
+    else {
+      formComplete = true;
+    }
     console.log("first-train: ",firstTrain)
     
 
     var frequency = $("#frequency").val().trim();
-   
+    if(frequency === "") {
+      alert("Please enter the frequency");
+      
+    }
+    
+    if(train !== "" && destination !== "" && firstTrain !== "" && frequency !== "") {
 
     // Change what is saved in firebase
       
@@ -46,14 +70,17 @@ $(document).ready(function(){
     database.ref().push(newTrain);
 
     // Alert
-    alert("Train successfully added");
+    
+      alert("Train successfully added");
+    
 
     //Clear the text boxes
     $("#train-name").val("");
     $("#destination").val("");
     $("#first-train").val("");
     $("#frequency").val("");
-
+  
+}
   }); 
     // Firebase is always watching for changes to the data.
     // When changes occurs it will print them to console and html
