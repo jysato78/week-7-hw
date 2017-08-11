@@ -1,0 +1,10 @@
+Train Scheduler
+
+This app acts as a train schedule that incorporates Firebase to host arrival and departure data. The app will retrieve 
+and manipulate this information with Moment.js. This website will provide up-to-date information about various trains, 
+namely their arrival times and how many minutes remain until they arrive at their station.  JavaScript, CSS and jQuery were used
+to add style and manipulate the HTML.
+
+The user needs to enter the necessary information regarding a train.  If they hit the submit button without filling out all the 
+fields, they will get an alert and be asked to fill out everything.  If they hit the submit button after the form is complete, their
+new train gets added and displayed.
